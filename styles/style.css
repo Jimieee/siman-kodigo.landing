@@ -1,0 +1,645 @@
+/* =============================================
+   1. variables, config global
+   ============================================= */
+:root {
+  --siman-red: rgb(168, 51, 56);
+  --siman-gold: #F5B335;
+  --siman-light: #F8F9FA;
+  --siman-dark: #212529;
+  --siman-accent: #E83E8C;
+
+  --bg-purple: #9b8aa6;
+  --bg-light-blue: #e6eeff;
+  --bg-light: #f5f5f7;
+  --bg-brown: #c1a99c;
+
+  --border-radius-sm: 5px;
+  --border-radius-md: 16px;
+  --border-radius-lg: 25px;
+  --border-radius-xl: 30px;
+  --border-radius-pill: 50px;
+
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 5px 15px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* =============================================
+     2. base
+     ============================================= */
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+h1,
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+h3,
+h4 {
+  font-family: 'Maven Pro', sans-serif;
+  font-weight: 600;
+}
+
+button,
+.btn,
+.nav-link,
+.shop-btn {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+/* =============================================
+     3. componentes
+     ============================================= */
+
+/* 3.1 botones */
+.btn-primary {
+  background-color: var(--siman-red);
+  border-color: var(--siman-red);
+  border-radius: var(--border-radius-pill);
+  padding: 10px 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--siman-gold);
+  border-color: var(--siman-gold);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline-primary {
+  color: var(--siman-red);
+  border-color: var(--siman-red);
+  border-radius: var(--border-radius-pill);
+  padding: 10px 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--siman-red);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.shop-btn {
+  background-color: #14192d;
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-lg);
+  padding: 10px 25px;
+  font-weight: 500;
+  margin-top: 20px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.shop-btn:hover {
+  background-color: #0d1020;
+  color: white;
+}
+
+.outline-btn {
+  transition: all 0.3s ease;
+  background-color: transparent;
+  border: 2px solid #14192d;
+  color: #14192d;
+}
+
+.outline-btn:hover {
+  background-color: #14192d;
+  color: white;
+}
+
+/* 3.2 tarjetas */
+.card {
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  border: none;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-xl);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.promo-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.promo-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.promo-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--siman-red);
+  color: white;
+  padding: 0.4rem 0.7rem;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  font-size: 0.85rem;
+  z-index: 1;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.tag {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: var(--siman-gold);
+  color: var(--siman-dark);
+  padding: 5px 15px;
+  border-radius: var(--border-radius-pill);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.fashion-card {
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 25px;
+  height: 100%;
+}
+
+.fashion-card .content {
+  padding: 30px;
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fashion-card h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.fashion-card .divider {
+  width: 50px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 15px 0;
+}
+
+.fashion-card img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.category-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.category-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+.category-card:hover img {
+  transform: scale(1.05);
+}
+
+.category-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+  color: white;
+  text-align: center;
+}
+
+.category-card-content h3 {
+  margin-bottom: 10px;
+}
+
+/* 3.3 secciones */
+.hero-section {
+  min-height: 75vh;
+  color: white;
+}
+
+.object-fit-cover {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.hero-modern h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  line-height: 1.2;
+}
+
+.hero-modern .btn {
+  font-family: 'Roboto', sans-serif;
+  border-radius: 8px;
+}
+
+
+.newsletter-section {
+  background-color: var(--siman-red);
+  padding: 4rem 0;
+  margin: 4rem 0;
+  color: white;
+}
+
+.countdown-timer {
+  background-color: rgba(245, 179, 53, 0.1);
+  padding: 20px;
+  border-radius: var(--border-radius-md);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.countdown-timer .time-block {
+  background-color: var(--siman-red);
+  color: white;
+  border-radius: var(--border-radius-sm);
+  padding: 10px;
+  min-width: 70px;
+  margin: 0 5px;
+  display: inline-block;
+  font-weight: 700;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.countdown-timer .time-label {
+  font-size: 0.8rem;
+  margin-top: 5px;
+  display: block;
+  font-weight: 400;
+}
+
+.section-title {
+  position: relative;
+  margin-bottom: 2.5rem;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--siman-gold);
+}
+
+/* 3.4 formularios */
+.newsletter-form input {
+  border-radius: var(--border-radius-pill) 0 0 var(--border-radius-pill);
+  padding: 15px 25px;
+  border: none;
+}
+
+.newsletter-form button {
+  border-radius: 0 var(--border-radius-pill) var(--border-radius-pill) 0;
+  padding: 15px 25px;
+  background-color: var(--siman-gold);
+  border: none;
+  color: var(--siman-dark);
+  font-weight: 600;
+}
+
+.newsletter-form button:hover {
+  background-color: var(--siman-gold);
+}
+
+/* =============================================
+     4. utils
+     ============================================= */
+
+
+.bg-soft {
+  background-color: var(--siman-red);
+}
+
+.purple-bg {
+  background-color: var(--bg-purple);
+}
+
+.light-blue-bg {
+  background-color: var(--bg-light-blue);
+}
+
+.light-bg {
+  background-color: var(--bg-light);
+}
+
+.brown-bg {
+  background-color: var(--bg-brown);
+}
+
+.light-blue-bg .content,
+.light-bg .content {
+  color: #333;
+}
+
+.light-blue-bg .divider,
+.light-bg .divider {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.discount-badge {
+  display: inline-block;
+  background-color: white;
+  color: #333;
+  padding: 4px 12px;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.category-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: var(--siman-gold);
+  color: var(--siman-dark);
+  padding: 5px 15px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  z-index: 100;
+}
+
+.red-discount {
+  background-color: transparent;
+  color: #dc3545;
+  font-size: 28px;
+  font-weight: 700;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+/* =============================================
+     5. Layout y estructura
+     ============================================= */
+.footer {
+  background-color: var(--siman-dark);
+  color: white;
+  padding: 4rem 0 2rem;
+  border-radius: var(--border-radius-xl) var(--border-radius-xl) 0 0;
+  margin-top: 3rem;
+}
+
+.img-container {
+  position: relative;
+  height: 100%;
+}
+
+/* =============================================
+     6. Componentes específicos
+     ============================================= */
+.page-header {
+  background: linear-gradient(135deg, var(--siman-red) 60%, rgba(0, 0, 0, 1) 100%);
+  color: white;
+  padding: 4rem 0;
+  border-radius: 0 0 30px 30px;
+  margin-bottom: 3rem;
+}
+
+.filter-tabs {
+  background-color: white;
+  border-radius: 50px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 5px;
+  margin-bottom: 30px;
+}
+
+.filter-tab {
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-weight: 500;
+  color: var(--siman-dark);
+  transition: all 0.3s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.filter-tab.active {
+  background-color: var(--siman-red);
+  color: white;
+}
+
+.navbar-brand {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.nav-link {
+  font-weight: 500;
+  padding: 10px 20px;
+  transition: all 0.3s;
+  border-radius: var(--border-radius-xl);
+}
+
+.nav-link:hover {
+  background-color: rgba(0, 51, 102, 0.1);
+}
+
+.nav-link.active {
+  color: var(--siman-red) !important;
+  font-weight: 600;
+}
+
+.social-icons a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  margin-right: 10px;
+  transition: all 0.3s;
+}
+
+.social-icons a:hover {
+  background-color: var(--siman-gold);
+  color: var(--siman-dark);
+  transform: translateY(-3px);
+}
+
+.category-pill {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: var(--border-radius-xl);
+  background-color: white;
+  color: var(--siman-dark);
+  font-weight: 500;
+  margin: 5px;
+  transition: all 0.3s;
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+}
+
+.category-pill:hover,
+.category-pill.active {
+  background-color: var(--siman-gold);
+  color: var(--siman-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.categories-container {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 20px 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.categories-container::-webkit-scrollbar {
+  display: none;
+}
+
+.categories-row {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0 15px;
+}
+
+.category-item {
+  flex: 0 0 auto;
+  width: 210px;
+  text-align: center;
+  position: relative;
+  padding: 0 15px;
+}
+
+.category-wrapper {
+  position: relative;
+}
+
+.category-image-container {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.category-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.category-divider {
+  position: absolute;
+  right: -22px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  height: 70px;
+  justify-content: center;
+  z-index: 10;
+}
+
+.category-name {
+  background-color: white;
+  border-radius: var(--border-radius-md);
+  padding: 8px 20px;
+  display: inline-block;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+  font-size: 15px;
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 120px;
+  z-index: 5;
+}
+
+/* =============================================
+     7. media queries
+     ============================================= */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .newsletter-form input {
+    border-radius: var(--border-radius-pill);
+    margin-bottom: 10px;
+  }
+
+  .newsletter-form button {
+    border-radius: var(--border-radius-pill);
+    width: 100%;
+  }
+
+  .fashion-card {
+    height: auto;
+  }
+
+  .fashion-card img {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .card-row-2 {
+    flex-direction: column-reverse;
+  }
+
+  .category-item {
+    width: 150px;
+  }
+
+  .category-image-container {
+    height: 200px;
+  }
+}
